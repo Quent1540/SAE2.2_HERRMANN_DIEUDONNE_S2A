@@ -7,6 +7,12 @@ import main.java.org.example.fichiers.Arcs;
 import main.java.org.example.fichiers.GrapheListe;
 
 public class Dijkstra implements Algorithme{
+    /**
+     * methode permettant de trouver le plus court chemin en utilisant dijkstra
+     * @param g graphe
+     * @param depart noeud de depart de l'algorithme
+     * @return
+     */
     public Valeur resoudre(GrapheListe g, String depart){
         // Début
         Valeur valeurs = new Valeur();

@@ -5,6 +5,12 @@ import main.java.org.example.fichiers.Arc;
 import main.java.org.example.fichiers.Arcs;
 import main.java.org.example.fichiers.GrapheListe;
 public class BellmanFord implements Algorithme {
+    /**
+     * methode permettant de trouver le plus court chemin en utilisant BellmanFord
+     * @param g graphe utilisé
+     * @param depart noeud de depart de l'algorithme
+     * @return
+     */
     public Valeur resoudre(GrapheListe g, String depart){
         Valeur valeurs = new Valeur();
         boolean modification=true;

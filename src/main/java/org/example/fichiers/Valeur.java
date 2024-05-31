@@ -89,6 +89,11 @@ public class Valeur {
 
     }
 
+    /**
+     * trouve un chemin du graphe qui va jusqua une destination placee en parametre
+     * @param destination noeud pour lequel on cherche un chemin
+     * @return renvoie le chemin recherché
+     */
     public List<String> calculerChemin(String destination){
         List<String> chemin = new ArrayList<>();
         String ValeurNoeud = destination;
