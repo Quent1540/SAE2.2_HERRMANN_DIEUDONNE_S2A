@@ -16,10 +16,5 @@ public class Main{
         BellmanFord b = new BellmanFord();
         Valeur valeurs = b.resoudre(g, "A");
         System.out.println(valeurs);
-
-        // Resolution pour Dijkstra
-        Dijkstra d = new Dijkstra();
-        Valeur valeurs2 = d.resoudre(g, "A");
-        System.out.println(valeurs2);
     }
 }

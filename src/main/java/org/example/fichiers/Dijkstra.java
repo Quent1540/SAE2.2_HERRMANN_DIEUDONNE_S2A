@@ -7,15 +7,14 @@ import main.java.org.example.fichiers.Arcs;
 import main.java.org.example.fichiers.GrapheListe;
 
 public class Dijkstra implements Algorithme{
-
-    public Valeur resoudre(GrapheListe g, String depart) {
+    public Valeur resoudre(GrapheListe g, String depart){
         // Début
         Valeur valeurs = new Valeur();
         // Q <- {} // utilisation d’une liste de nœuds à traiter
         ArrayList<String> Q = new ArrayList<>(g.getNoeuds());
-
         // Pour chaque sommet v de G faire
-        for (String noeud : g.getNoeuds()) {
+
+        for (String noeud : g.getNoeuds()){
             // v.valeur <- Infini
             valeurs.setValeur(noeud, Double.MAX_VALUE);
             // v.parent <- Indéfini
@@ -27,32 +26,33 @@ public class Dijkstra implements Algorithme{
         valeurs.setValeur(depart, 0.0);
 
         // Tant que Q est un ensemble non vide faire
-        while (!Q.isEmpty()) {
+        while (!Q.isEmpty()){
             // u <- un sommet de Q telle que u.valeur est minimal
             String u = null;
             double minDistance = Double.MAX_VALUE;
-            for (String noeud : Q) {
-                if (valeurs.getValeur(noeud) < minDistance) {
+
+            for (String noeud : Q){
+                if (valeurs.getValeur(noeud) < minDistance){
                     minDistance = valeurs.getValeur(noeud);
                     u = noeud;
                 }
             }
 
-            if (u == null) {
+            if (u == null){
                 break;
             }
 
             // enlever le sommet u de la liste Q
             Q.remove(u);
-
             // Pour chaque sommet v de Q tel que l’arc (u,v) existe faire
-            for (Arc arc : g.suivants(u)) {
+            for (Arc arc : g.suivants(u)){
                 String v = arc.getDest();
-                if (Q.contains(v)) {
+                if (Q.contains(v)){
                     // d <- u.valeur + poids(u,v)
                     double alt = valeurs.getValeur(u) + arc.getCout();
+
                     // Si d < v.valeur
-                    if (alt < valeurs.getValeur(v)) {
+                    if (alt < valeurs.getValeur(v)){
                         // le chemin est plus interessant
                         // Alors v.valeur <- d
                         valeurs.setValeur(v, alt);

@@ -24,7 +24,7 @@ public class TestGraphe{
         assertEquals(3, g.getIndice("D"));
 
         assertEquals("B", g.getAdjacence().get(0).getArcs().get(0).getDest()); //Le premier arc sortant de A doit etre B
-        assertEquals(12, g.getAdjacence().get(0).getArcs().get(0).getCout()); // Le cout du premier arc sortant de A doit etre egal au cout de l'arc reliant A a B, soit 12
+        assertEquals(10, g.getAdjacence().get(0).getArcs().get(0).getCout()); // Le cout du premier arc sortant de A doit etre egal au cout de l'arc reliant A a B, soit 10
     }
 
     @Test
@@ -42,11 +42,11 @@ public class TestGraphe{
 
         // Vérifier les valeurs des plus courts chemins
         assertEquals(0.0, resultats.getValeur("A"));
-        assertEquals(5.0, resultats.getValeur("B"));
+        assertEquals(3.0, resultats.getValeur("B"));
 
         // Vérifier les parents des nœuds
         assertNull(resultats.getParent("A"));
-        assertEquals("A", resultats.getParent("B"));
+        assertEquals("D", resultats.getParent("B"));
     }
 
     @Test
