@@ -12,9 +12,14 @@ public class Main{
         g.ajouterArc("A", "D", 87);
         System.out.println(g.toString());
 
+        long date_debut = System.nanoTime ();
         // Resolution pour BellmanFord
         BellmanFord b = new BellmanFord();
         Valeur valeurs = b.resoudre(g, "A");
         System.out.println(valeurs);
+        long date_fin = System.nanoTime ();
+        //on convertit la duree en millisecondes
+        long duree = (date_fin  - date_debut)/ 1000000;
+        System.out.println("durée d'éxécution: " + duree + " millisecondes");
     }
 }

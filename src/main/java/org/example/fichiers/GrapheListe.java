@@ -1,4 +1,7 @@
 package main.java.org.example.fichiers;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -16,7 +19,6 @@ public class GrapheListe implements Graphe{
         noeuds = new ArrayList<>();
         adjacence = new ArrayList<>();
     }
-
     /**
      * renvoie l'indice du noeud placé en parametre dans la liste de noeuds du graphe
      * @param n noeud dont on cherche l'indice
