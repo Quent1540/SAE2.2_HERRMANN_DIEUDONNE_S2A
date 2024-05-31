@@ -1,5 +1,6 @@
 package main.java.org.example.fichiers;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
@@ -19,6 +20,16 @@ public class GrapheListe implements Graphe{
         noeuds = new ArrayList<>();
         adjacence = new ArrayList<>();
     }
+
+    public GrapheListe(String nomFichier) throws IOException {
+        noeuds = new ArrayList<>();
+        adjacence = new ArrayList<>();
+        BufferedReader br = new BufferedReader(new FileReader(nomFichier));
+        String ligne;
+        while ((ligne = br.readLine()) != null) {
+            String[] elements = ligne.split("\t");
+            ajouterArc(elements[0], elements[1], Double.parseDouble(elements[2]));
+    }}
     /**
      * renvoie l'indice du noeud placé en parametre dans la liste de noeuds du graphe
      * @param n noeud dont on cherche l'indice

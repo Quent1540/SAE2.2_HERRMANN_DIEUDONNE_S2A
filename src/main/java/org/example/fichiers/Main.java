@@ -1,25 +1,27 @@
 package main.java.org.example.fichiers;
 
-public class Main{
-    public static void main(String[] args){
-        GrapheListe g = new GrapheListe();
-        g.ajouterArc("D", "B", 23);
-        g.ajouterArc("B", "E", 11);
-        g.ajouterArc("D", "C", 10);
-        g.ajouterArc("C", "A", 19);
-        g.ajouterArc("A", "B", 12);
-        g.ajouterArc("E", "D", 43);
-        g.ajouterArc("A", "D", 87);
-        System.out.println(g.toString());
+import java.io.IOException;
 
-        long date_debut = System.nanoTime ();
+public class Main{
+    public static void main(String[] args) throws IOException {
         // Resolution pour BellmanFord
+        int division=0;
+        long duree_totale=0;
         BellmanFord b = new BellmanFord();
-        Valeur valeurs = b.resoudre(g, "A");
-        System.out.println(valeurs);
-        long date_fin = System.nanoTime ();
+        for(int j=0;j<=50;j++) {
+            for (int i = 11; i <= 15; i++) {
+                long date_debut = System.nanoTime ();
+                String nomfich = "Ressources/Graphes/Graphe" + i + ".txt";
+                GrapheListe g = new GrapheListe(nomfich);
+                Valeur valeurs = b.resoudre(g, "A");
+                System.out.println(nomfich + "\n" + valeurs);
+                division++;
+                long date_fin = System.nanoTime ();
+                duree_totale+=date_fin-date_debut;
+            }
+        }
         //on convertit la duree en millisecondes
-        long duree = (date_fin  - date_debut)/ 1000000;
-        System.out.println("durée d'éxécution: " + duree + " millisecondes");
+        long duree = (duree_totale)/division;
+        System.out.println("durée d'éxécution: " + duree + " nanosecondes");
     }
 }
